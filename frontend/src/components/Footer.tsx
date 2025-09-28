@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <footer className="h-[300px] md:h-[400px] mx-auto flex justify-center items-center text-sm bg-[var(--basic-yellow)]">
-            <div className="w-fit h-fit flex flex-col gap-[110px] md:flex-row justify-center items-center md:items-start ">
+            <div className="w-full max-w-[1000px] h-fit md:!px-[40px] flex md:flex-row justify-center md:justify-between items-center md:items-start ">
                 <div className="w-fit flex flex-col items-center md:items-start gap-[30px]">
                     <img src="/assets/logo/unni.webp" className="w-[50px] md:w-[80px]" alt="" />
                     <div className="flex flex-col gap-[5px] text-center md:text-left">

@@ -1,6 +1,6 @@
 export default function Order() {
     return (
-        <div>
+        <div className="w-full h-[600px] flex justify-center items-center">
             Order
         </div>
     )

@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const NavLink = ({ to, label }: { to: string; label: string }) => {
+const NavLink = ({ to, label, menuClose }: { to: string; label: string, menuClose: () => void }) => {
     const location = useLocation();
     const isActive = location.pathname === to;
 
     return (
         <Link
+            onClick={menuClose}
             to={to}
-            className={`py-10 text-xl font-bold ${isActive ? "text-[var(--basic-yellow)]" : ""}`}
+            className={`py-10 text-lg font-bold ${isActive ? "text-[var(--basic-yellow)]" : ""}`}
         >
             {label}
         </Link>

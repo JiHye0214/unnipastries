@@ -8,10 +8,10 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
         <header
             className={`${
                 isVisible ? "visible" : "hidden"
-            } w-full h-[100px] md:h-[300px] flex flex-col gap-[50px] justify-center items-center relative`}
+            } w-full h-[80px] md:h-[250px] flex flex-col gap-[50px] justify-end items-center relative`}
         >
-            <button className="btn-hover md:hidden" onClick={() => setMenuOpen(!isMenuOpen)}>
-                <img src="/assets/logo/menu.png" alt="" className="w-[24px] absolute top-[38px] left-[20px]" />
+            <button className="btn-hover md:hidden absolute top-[38px] left-[20px]" onClick={() => setMenuOpen(!isMenuOpen)}>
+                <img src="/assets/logo/menu.png" alt="" className="w-[24px]" />
             </button>
             <img src="/assets/logo/unni.webp" alt="" title="Unni Pastries" className="w-[60px] md:w-[100px]" />
             <nav
@@ -19,14 +19,14 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
                     isMenuOpen ? "translate-x-0" : "-translate-x-full" 
                 } md:translate-x-0 md:!transition-none`}
             >
-                <button className="btn-hover md:hidden" onClick={() => setMenuOpen(!setMenuOpen)}>
-                    <img src="/assets/logo/close.png" className="w-[20px] absolute top-5 right-5" alt="" />
+                <button className="btn-hover md:hidden absolute top-5 right-5" onClick={() => setMenuOpen(!setMenuOpen)}>
+                    <img src="/assets/logo/close.png" className="w-[18px]" alt="" />
                 </button>
-                <NavLink to="/" label="Home"></NavLink>
-                <NavLink to="/order" label="Order"></NavLink>
-                <NavLink to="/wedding-custom" label="Wedding & Custom"></NavLink>
-                <NavLink to="/faq" label="FAQ"></NavLink>
-                <NavLink to="/contact" label="Contact"></NavLink>
+                <NavLink menuClose={() => setMenuOpen(false)} to="/" label="Home"></NavLink>
+                <NavLink menuClose={() => setMenuOpen(false)} to="/order" label="Order Online"></NavLink>
+                <NavLink menuClose={() => setMenuOpen(false)} to="/wedding-custom" label="Wedding & Custom"></NavLink>
+                <NavLink menuClose={() => setMenuOpen(false)} to="/faq" label="FAQ"></NavLink>
+                <NavLink menuClose={() => setMenuOpen(false)} to="/contact" label="Contact Us"></NavLink>
             </nav>
         </header>
     );
