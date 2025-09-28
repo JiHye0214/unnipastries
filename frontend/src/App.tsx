@@ -17,7 +17,7 @@ function App() {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
-        if(location.pathname === '/sign-in' || location.pathname === '/sign-up') {
+        if(location.pathname === '/sign-in') {
             setIsVisible(false);
         } else {
             setIsVisible(true);
@@ -35,7 +35,7 @@ function App() {
                 
                 <Route path="/" element={<Home />} />
                 <Route path="/order" element={<Order />} />
-                <Route path="/custom" element={<Custom />} />
+                <Route path="/wedding-custom" element={<Custom />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>

@@ -8,14 +8,7 @@ const NavLink = ({ to, label }: { to: string; label: string }) => {
     return (
         <Link
             to={to}
-            className={`py-1 font-semibold 
-                ${
-                    isActive && location.pathname === "/about"
-                        ? "text-yellow-500 border-b-2 border-yellow-500"
-                        : isActive
-                        ? "border-gray-800 border-b-2"
-                        : ""
-                }`}
+            className={`py-10 text-xl font-bold ${isActive ? "text-[var(--basic-yellow)]" : ""}`}
         >
             {label}
         </Link>
