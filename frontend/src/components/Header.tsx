@@ -10,7 +10,7 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
                 isVisible ? "visible" : "hidden"
             } w-full h-[80px] md:h-[250px] flex flex-col gap-[50px] justify-end items-center relative`}
         >
-            <button className="btn-hover md:hidden absolute top-[38px] left-[20px]" onClick={() => setMenuOpen(!isMenuOpen)}>
+            <button className="btn-hover md:hidden absolute top-[38px] left-[30px]" onClick={() => setMenuOpen(!isMenuOpen)}>
                 <img src="/assets/logo/menu.png" alt="" className="w-[24px]" />
             </button>
             <img src="/assets/logo/unni.webp" alt="" title="Unni Pastries" className="w-[60px] md:w-[100px]" />
@@ -19,8 +19,8 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
                     isMenuOpen ? "translate-x-0" : "-translate-x-full" 
                 } md:translate-x-0 md:!transition-none`}
             >
-                <button className="btn-hover md:hidden absolute top-5 right-5" onClick={() => setMenuOpen(!setMenuOpen)}>
-                    <img src="/assets/logo/close.png" className="w-[18px]" alt="" />
+                <button className="btn-hover md:hidden absolute top-6 right-6" onClick={() => setMenuOpen(!setMenuOpen)}>
+                    <img src="/assets/logo/close.png" className="w-[15px]" alt="" />
                 </button>
                 <NavLink menuClose={() => setMenuOpen(false)} to="/" label="Home"></NavLink>
                 <NavLink menuClose={() => setMenuOpen(false)} to="/order" label="Order Online"></NavLink>
