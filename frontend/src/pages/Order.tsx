@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+
+import { useState } from "react";
 
 export default function Order() {
-    const [ctgShow, setCtgShow] = useState(false);
+    const orderNavLabel: string[] = ["All", "Afternoom Tea & Gift Boxes", "Whole & Piece Cakes", "Pastries & Baked Goods"];
+    const [clickNavLabel, setClickNavLabel] = useState(0);
+    const handleNavLabel = (index:number) => {
+        setClickNavLabel(index);
+    }
+    // const [ctgShow, setCtgShow] = useState(false);
 
-    useEffect(() => {
-        const timer = setTimeout(() => setCtgShow(true), 100);
-        return () => clearTimeout(timer);
-    }, []);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => setCtgShow(true), 100);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
     return (
-        <div className="w-full h-[calc(100vh-80px)] md:h-[calc(100vh-100px)] flex justify-center items-center">
-            <ul className="hidden md:flex flex sm:justify-center items-center gap-[20px] lg:gap-[30px] font-bold text-md lg:text-lg">
-                {/* 듀오링고 해야 돼서 이만 가지만 */}
-                {/* lg일 때만 사이드 nav 띄워서 바로가게 만들고 (like Notion) */}
-                {/* li는 div로 바꿔서 표지느낌으로 가로로 해야지 */}
-                {/* 아니야 nav 귀찮으니까 */}
-                {/* 왜케 변덕이 심하니  */}
-
-                {/* nav 느낌으로 해놨으니까 (사이드는 아닌) 
-                내일 눌렀을 때 해당 제품들 뜨게 하면 됨*/}
+        <div className="!mt-[20px] md:!mt-[50px] w-full h-[calc(100vh-80px)] md:h-[calc(100vh-100px)] flex justify-center items-start">
+            <nav className="flex gap-[20px]">
+                {orderNavLabel.map((label, index) => (
+                    // 중괄호 아니고 괄호다 얘야
+                    <div onClick={() => handleNavLabel(index)} key={index} className={`${clickNavLabel === index ? 'text-white bg-[var(--basic-yellow)]' : 'text-[var(--basic-yellow)] border-1 border-solid border-[var(--basic-yellow)]'} !px-[15px] !py-[10px] rounded-lg font-semibold btn-hover`}>{label}</div>
+                ))}
+            </nav>
+            {/* <ul className="hidden md:flex flex sm:justify-center items-center gap-[20px] lg:gap-[30px] font-bold text-md lg:text-lg">
                 <li
                     className={`group relative w-[230px] h-[70px] lg:w-[280px] lg:h-[90px] shrink-0 flex justify-center items-center 
                         shadow-lg rounded-lg btn-hover overflow-hidden
@@ -30,7 +35,7 @@ export default function Order() {
                         className="absolute inset-0 bg-[url('/assets/platters/two-platters.webp')] 
       bg-cover bg-center filter brightness-100 group-hover:brightness-60 transition duration-400"
                     ></div>
-                    <span className="z-10 hidden text-white group-hover:block transition duration-400">Afternoom Tea & Gift Boxes</span>
+                    <span className="z-10 opacity-0 text-white group-hover:opacity-100 transition ease-out duration-400">Afternoom Tea & Gift Boxes</span>
                 </li>
                 <li
                     className={`group relative w-[230px] h-[70px] lg:w-[280px] lg:h-[90px] shrink-0 flex justify-center items-center 
@@ -43,7 +48,7 @@ export default function Order() {
                         className="absolute inset-0 bg-[url('/assets/cakes/earlgrey-buttercream-cake.webp')] 
       bg-cover bg-center filter brightness-100 group-hover:brightness-60 transition duration-400"
                     ></div>
-                    <span className="z-10 hidden text-white group-hover:block transition duration-400">Whole & Piece Cakes</span>
+                    <span className="z-10 opacity-0 text-white group-hover:opacity-100 transition ease-out duration-400">Whole & Piece Cakes</span>
                 </li>
                 <li
                     className={`group relative w-[230px] h-[70px] lg:w-[280px] lg:h-[90px] shrink-0 flex justify-center items-center 
@@ -56,9 +61,9 @@ export default function Order() {
                         className="absolute inset-0 bg-[url('/assets/pastreis/assorted-donuts.webp')] 
       bg-cover bg-center filter brightness-100 group-hover:brightness-60 transition duration-400"
                     ></div>
-                    <span className="z-10 hidden text-white group-hover:block transition duration-400">Pastries & Baked Goods</span>
+                    <span className="z-10 opacity-0 text-white group-hover:opacity-100 transition ease-out duration-400">Pastries & Baked Goods</span>
                 </li>
-            </ul>
+            </ul> */}
         </div>
     );
 }

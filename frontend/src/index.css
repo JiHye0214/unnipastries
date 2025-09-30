@@ -3,6 +3,7 @@
 
 :root {
     --basic-yellow: rgb(221, 178, 94);
+    --light-yellow: #efcf8f;
 }
 
 * {
