@@ -9,7 +9,7 @@ const NavLink = ({ to, label, menuClose }: { to: string; label: string, menuClos
         <Link
             onClick={menuClose}
             to={to}
-            className={`py-10 text-lg font-bold ${isActive ? "text-[var(--basic-yellow)]" : ""}`}
+            className={`py-10 text-sm font-medium ${isActive ? "text-[var(--basic-yellow)]" : ""}`}
         >
             {label}
         </Link>

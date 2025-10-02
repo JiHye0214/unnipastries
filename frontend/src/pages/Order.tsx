@@ -14,20 +14,22 @@ export default function Order() {
     };
 
     return (
-        <div className="!mt-[20px] w-full flex flex-col justify-start items-center">
-            <nav className="sticky top-0 w-full h-[60px] bg-[var(--grey-brown)] flex justify-center items-center gap-[20px]">
-                {orderNavLabel.map((label, index) => (
-                    // 중괄호 아니고 괄호다 얘야
-                    <div
-                        onClick={() => handleNavLabel(index)}
-                        key={index}
-                        className={`${
-                            clickNavLabel === index ? "text-white" : "text-[var(--basic-yellow)]"
-                        } !px-[15px] font-semibold btn-hover`}
-                    >
-                        {label}
-                    </div>
-                ))}
+        <div className="w-full flex flex-col justify-start items-center">
+            <nav className="sticky top-0 w-full h-[50px] bg-[var(--grey-brown)] flex justify-center items-center gap-[20px]">
+                <div className="w-[1100px] flex justify-start gap-[30px]">
+                    {orderNavLabel.map((label, index) => (
+                        // 중괄호 아니고 괄호다 얘야
+                        <div
+                            onClick={() => handleNavLabel(index)}
+                            key={index}
+                            className={`${
+                                clickNavLabel === index ? "text-white" : "text-[var(--basic-yellow)]"
+                            } font-medium text-sm btn-hover`}
+                        >
+                            {label}
+                        </div>
+                    ))}
+                </div>
             </nav>
             <div className="!m-[70px] flex flex-col gap-[50px]">
                 {/* Afternoon tea */}
@@ -206,55 +208,35 @@ export default function Order() {
                     <p className="font-semibold text-lg">Piece Cakes</p>
                     <div className="flex gap-[20px] w-max">
                         <div className="w-[150px] h-fit btn-hover">
-                            <img
-                                src="/assets/cakes/piece-espresso.webp"
-                                alt=""
-                                className="w-full h-[150px] object-cover"
-                            />
+                            <img src="/assets/cakes/piece-espresso.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold text-[15px]">Espresso Tiramisu</p>
                                 <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img
-                                src="/assets/cakes/piece-matcha.webp"
-                                alt=""
-                                className="w-full h-[150px] object-cover"
-                            />
+                            <img src="/assets/cakes/piece-matcha.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Matcha Tiramisu</p>
                                 <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img
-                                src="/assets/cakes/piece-mango.webp"
-                                alt=""
-                                className="w-full h-[150px] object-cover"
-                            />
+                            <img src="/assets/cakes/piece-mango.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Mango Tiramisu</p>
                                 <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img
-                                src="/assets/cakes/piece-oreo.webp"
-                                alt=""
-                                className="w-full h-[150px] object-cover"
-                            />
+                            <img src="/assets/cakes/piece-oreo.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Oreo Cheesecake</p>
                                 <p className="text-xs">CAD$8.50</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img
-                                src="/assets/cakes/slice-pound-cake.webp"
-                                alt=""
-                                className="w-full h-[150px] object-cover"
-                            />
+                            <img src="/assets/cakes/slice-pound-cake.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Pound Slice</p>
                                 <p className="text-xs">CAD$4.75</p>
