@@ -179,21 +179,21 @@ export default function Order() {
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img src="/assets/cakes/lemon-cake.webp" alt="" className="w-full h-[150px] object-cover rounded-sm" />
+                            <img src="/assets/cakes/lemon-cake.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Lemon Daisy Cake</p>
                                 <p className="text-sm">CAD$45.00 - CAD$65.00</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img src="/assets/cakes/gender-cake.webp" alt="" className="w-full h-[150px] object-cover rounded-sm" />
+                            <img src="/assets/cakes/gender-cake.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Baby Gender Reveal Cake</p>
                                 <p className="text-sm">CAD$55.00 - CAD$75.00</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
-                            <img src="/assets/cakes/slice-pound-cake.webp" alt="" className="w-full h-[150px] object-cover rounded-sm" />
+                            <img src="/assets/cakes/slice-pound-cake.webp" alt="" className="w-full h-[150px] object-cover" />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Pound Cake</p>
                                 <p className="text-sm">CAD$55.00</p>
@@ -209,55 +209,55 @@ export default function Order() {
                             <img
                                 src="/assets/cakes/piece-espresso.webp"
                                 alt=""
-                                className="w-full h-[150px] object-cover rounded-sm"
+                                className="w-full h-[150px] object-cover"
                             />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
-                                <p className="font-semibold">Espresso Tiramisu</p>
-                                <p className="text-sm">CAD$8.95</p>
+                                <p className="font-semibold text-[15px]">Espresso Tiramisu</p>
+                                <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
                             <img
                                 src="/assets/cakes/piece-matcha.webp"
                                 alt=""
-                                className="w-full h-[150px] object-cover rounded-sm"
+                                className="w-full h-[150px] object-cover"
                             />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Matcha Tiramisu</p>
-                                <p className="text-sm">CAD$8.95</p>
+                                <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
                             <img
                                 src="/assets/cakes/piece-mango.webp"
                                 alt=""
-                                className="w-full h-[150px] object-cover rounded-sm"
+                                className="w-full h-[150px] object-cover"
                             />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Mango Tiramisu</p>
-                                <p className="text-sm">CAD$8.95</p>
+                                <p className="text-xs">CAD$8.95</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
                             <img
                                 src="/assets/cakes/piece-oreo.webp"
                                 alt=""
-                                className="w-full h-[150px] object-cover rounded-sm"
+                                className="w-full h-[150px] object-cover"
                             />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Oreo Cheesecake</p>
-                                <p className="text-sm">CAD$8.50</p>
+                                <p className="text-xs">CAD$8.50</p>
                             </div>
                         </div>
                         <div className="w-[150px] h-fit btn-hover">
                             <img
-                                src="/assets/cakes/piece-pound.webp"
+                                src="/assets/cakes/slice-pound-cake.webp"
                                 alt=""
-                                className="w-full h-[150px] object-cover rounded-sm"
+                                className="w-full h-[150px] object-cover"
                             />
                             <div className="!pt-[10px] flex flex-col gap-[3px]">
                                 <p className="font-semibold">Pound Slice</p>
-                                <p className="text-sm">CAD$4.75</p>
+                                <p className="text-xs">CAD$4.75</p>
                             </div>
                         </div>
                     </div>
