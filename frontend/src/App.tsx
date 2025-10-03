@@ -8,7 +8,7 @@ import Mypage from "./pages/auth/Mypage";
 import Cart from "./pages/auth/Cart";
 import Order from "./pages/Order";
 import Custom from "./pages/Custom";
-import Faq from "./pages/Faq";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { useEffect, useState } from "react";
 
@@ -34,9 +34,9 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/wedding-custom" element={<Custom />} />
-                <Route path="/faq" element={<Faq />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
             <Footer />

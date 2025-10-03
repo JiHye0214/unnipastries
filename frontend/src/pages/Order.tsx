@@ -1,36 +1,91 @@
 import { useState } from "react";
 
 export default function Order() {
-    const orderNavLabel: string[] = [
-        "All",
-        "Afternoon Tea Dine In",
-        "Specialty Gift & Mixed Boxes",
-        "Whole & Piece Cakes",
-        "Individual Items",
-    ];
-    const [clickNavLabel, setClickNavLabel] = useState(0);
+    type Category = {
+        img: string;
+        label: string;
+        sub?: string[];
+    };
+    const orderCategory: Category[] = [
+        {
+            label: 'Special',
+            img: 'sparkle.png',
+            sub: ['All', 'Afternoon Tea', 'Specialty Gift', 'Specialty Box']
+        },
+        {
+            label: 'Mixed Boxes',
+            img: 'gift.png',
+        },
+        {
+            label: 'Cakes',
+            img: 'piece-cake.png',
+            sub:['All', 'Whole', 'Piece']
+        }, 
+        {
+            label: 'Bread & Dough',
+            img: 'donut.png',
+            sub:['All', 'Specialty Donut', 'Classic Donut', 'Brioche', 'Loaf Bread']
+        }, 
+        {
+            label: 'Desserts',
+            img:'cookie.png',
+            sub:['All', 'Choux', 'Cookies', 'Dacquoise']
+        },
+        {
+            label: 'Meal',
+            img:'meal.png'
+        }
+    ]
+
+    const [clickNavLabel, setClickNavLabel] = useState<number | null>(null);
     const handleNavLabel = (index: number) => {
         setClickNavLabel(index);
     };
 
+    const [currentSubLabel, setSubLabel] = useState<number | null>(0);
+    const handleSubLabel = (index: number) => {
+        setSubLabel(index);
+    }
+
     return (
         <div className="w-full flex flex-col justify-start items-center">
-            <nav className="sticky top-0 w-full h-[50px] bg-[var(--grey-brown)] flex justify-center items-center gap-[20px]">
-                <div className="w-[1100px] flex justify-start gap-[30px]">
-                    {orderNavLabel.map((label, index) => (
+            {/* banner */}
+            <div className="w-full h-[500px] bg-[var(--light-yellow)] flex justify-center items-center">
+                <div className="w-[1100px] h-full flex flex-col justify-center items-center gap-[30px]">
+                    <p className="font-extrabold text-5xl">ORDER NOW!</p>
+                    <button className="btn-hover !px-[20px] !py-[12px] bg-white rounded-full">How to order</button>
+                </div>
+            </div>
+
+            <div className="relative w-full flex flex-col justify-center items-center gap-[20px]">
+                <ul className="absolute top-[-100px] w-[1100px] flex justify-center gap-[30px]">
+                    {orderCategory.map((category, index) => (
                         // 중괄호 아니고 괄호다 얘야
-                        <div
+                        <li
                             onClick={() => handleNavLabel(index)}
                             key={index}
                             className={`${
-                                clickNavLabel === index ? "text-white" : "text-[var(--basic-yellow)]"
-                            } font-medium text-sm btn-hover`}
+                                clickNavLabel === index ? "bg-[#fff5e1]" : "bg-white"
+                            } text-[var(--basic-yellow)] w-[130px] h-[160px] flex flex-col gap-[20px] justify-center items-center rounded-3xl border-1 !p-[10px] text-sm btn-hover`}
                         >
-                            {label}
-                        </div>
+                            <img src={`/assets/logo/${category.img}`} width={'50px'} alt="" />
+                            <p>{category.label}</p>
+                        </li>
                     ))}
-                </div>
-            </nav>
+
+                </ul>
+
+                <ul className="h-[160px] flex justify-center items-end gap-[20px]">
+                    {orderCategory.map((category, index) => 
+                        clickNavLabel === index ? (
+                            category.sub?.map((subMenu, subIdx) => (
+                                <li key={index} onClick={() => handleSubLabel(subIdx)} className={`${currentSubLabel === subIdx ? 'bg-black' : 'bg-[var(--basic-yellow)]'} btn-hover text-sm !px-[13px] !py-[7px] text-white border-1 border-transparant rounded-3xl`}>{subMenu}</li>
+                            ))
+                        ) : null
+                    )}
+                </ul>
+            </div>
+            
             <div className="!m-[70px] flex flex-col gap-[50px]">
                 {/* Afternoon tea */}
                 <section className="flex flex-col gap-[10px]">
@@ -55,7 +110,7 @@ export default function Order() {
                 {/* Whole cakes */}
                 <section className="flex flex-col gap-[10px]">
                     <p className="font-semibold text-lg">Whole Cakes</p>
-                    <div className="w-[1200px] flex flex-wrap gap-[20px]">
+                    <div className="w-[1100px] flex flex-wrap gap-[20px]">
                         <div className="w-[150px] h-fit btn-hover">
                             <img
                                 src="/assets/cakes/strawberry-cake.webp"
@@ -247,7 +302,7 @@ export default function Order() {
                 {/* individual */}
                 <section className="flex flex-col gap-[10px]">
                     <p className="font-semibold text-lg">Individual Items</p>
-                    <div className="w-[1200px] overflow-x-auto overflow-y-hidden no-scrollbar">
+                    <div className="w-[1100px] overflow-x-auto overflow-y-hidden no-scrollbar">
                         <div className="flex gap-[20px] w-max">
                             <div className="w-[150px] h-fit btn-hover">
                                 <img
