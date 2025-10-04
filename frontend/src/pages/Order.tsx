@@ -1,6 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Order() {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+    axios.get("http://localhost:3001/items").then((res) => {
+      setItems(res.data);
+      console.log("----------------")
+      console.log(items);
+    });
+  }, []);
+
     type Category = {
         img: string;
         label: string;
@@ -8,52 +19,66 @@ export default function Order() {
     };
     const orderCategory: Category[] = [
         {
-            label: 'Special',
-            img: 'sparkle.png',
-            sub: ['All', 'Afternoon Tea', 'Specialty Gift', 'Specialty Box']
+            label: "Special",
+            img: "sparkle.png",
+            sub: ["All", "Afternoon Tea", "Specialty Gift", "Specialty Box"],
         },
         {
-            label: 'Mixed Boxes',
-            img: 'gift.png',
+            label: "Mixed Boxes",
+            img: "gift.png",
         },
         {
-            label: 'Cakes',
-            img: 'piece-cake.png',
-            sub:['All', 'Whole', 'Piece']
-        }, 
-        {
-            label: 'Bread & Dough',
-            img: 'donut.png',
-            sub:['All', 'Specialty Donut', 'Classic Donut', 'Brioche', 'Loaf Bread']
-        }, 
-        {
-            label: 'Desserts',
-            img:'cookie.png',
-            sub:['All', 'Choux', 'Cookies', 'Dacquoise']
+            label: "Cakes",
+            img: "piece-cake.png",
+            sub: ["All", "Whole", "Piece"],
         },
         {
-            label: 'Meal',
-            img:'meal.png'
-        }
-    ]
+            label: "Bread & Dough",
+            img: "donut.png",
+            sub: ["All", "Specialty Donut", "Classic Donut", "Brioche", "Loaf Bread"],
+        },
+        {
+            label: "Desserts",
+            img: "cookie.png",
+            sub: ["All", "Choux", "Cookies", "Dacquoise"],
+        },
+        {
+            label: "Meal",
+            img: "meal.png",
+        },
+    ];
 
-    const [clickNavLabel, setClickNavLabel] = useState<number | null>(null);
+    const [clickNavLabel, setClickNavLabel] = useState(0);
     const handleNavLabel = (index: number) => {
+        setSubLabel(0);
         setClickNavLabel(index);
     };
 
     const [currentSubLabel, setSubLabel] = useState<number | null>(0);
     const handleSubLabel = (index: number) => {
         setSubLabel(index);
-    }
+    };
 
     return (
         <div className="w-full flex flex-col justify-start items-center">
             {/* banner */}
-            <div className="w-full h-[500px] bg-[var(--light-yellow)] flex justify-center items-center">
-                <div className="w-[1100px] h-full flex flex-col justify-center items-center gap-[30px]">
-                    <p className="font-extrabold text-5xl">ORDER NOW!</p>
-                    <button className="btn-hover !px-[20px] !py-[12px] bg-white rounded-full">How to order</button>
+            <div className="w-full h-[600px] bg-[var(--light-yellow)] flex justify-center items-center">
+                <div className="w-[1100px] h-full flex flex-col justify-center items-center gap-[40px]">
+                    <p className="font-extrabold text-5xl">Online Order</p>
+                    <div className="flex flex-col gap-[10px] text-center">
+                        <p>* 예약 픽업 / 딜리버리 전용 (최소 하루 전, 일부 품목 이틀 전)</p>
+                        <p>* 당일 픽업은 전화나 우버이츠를 이용하여 주문해 주세요</p>
+                    </div>
+                    <div className="flex gap-[20px]">
+                        <a href="tel:+16048287476" className="sm:hidden btn-hover !px-[20px] !py-[12px] bg-white rounded-full">Call Us</a>
+                        <a
+                            href="https://www.ubereats.com/ca/store/unni-pastries-robson/5Uv2qPEYXhq2RDKjLOiFfQ?diningMode=DELIVERY&ps=1&surfaceName="
+                            target="_blank"
+                            className="btn-hover !px-[20px] !py-[12px] bg-white rounded-full hover:bg-green-600"
+                        >
+                            Use Uber Eats
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -68,24 +93,31 @@ export default function Order() {
                                 clickNavLabel === index ? "bg-[#fff5e1]" : "bg-white"
                             } text-[var(--basic-yellow)] w-[130px] h-[160px] flex flex-col gap-[20px] justify-center items-center rounded-3xl border-1 !p-[10px] text-sm btn-hover`}
                         >
-                            <img src={`/assets/logo/${category.img}`} width={'50px'} alt="" />
+                            <img src={`/assets/logo/${category.img}`} width={"50px"} alt="" />
                             <p>{category.label}</p>
                         </li>
                     ))}
-
                 </ul>
 
                 <ul className="h-[160px] flex justify-center items-end gap-[20px]">
-                    {orderCategory.map((category, index) => 
-                        clickNavLabel === index ? (
-                            category.sub?.map((subMenu, subIdx) => (
-                                <li key={index} onClick={() => handleSubLabel(subIdx)} className={`${currentSubLabel === subIdx ? 'bg-black' : 'bg-[var(--basic-yellow)]'} btn-hover text-sm !px-[13px] !py-[7px] text-white border-1 border-transparant rounded-3xl`}>{subMenu}</li>
-                            ))
-                        ) : null
+                    {orderCategory.map((category, index) =>
+                        clickNavLabel === index
+                            ? category.sub?.map((subMenu, subIdx) => (
+                                  <li
+                                      key={subIdx}
+                                      onClick={() => handleSubLabel(subIdx)}
+                                      className={`${
+                                          currentSubLabel === subIdx ? "bg-black" : "bg-[var(--basic-yellow)]"
+                                      } btn-hover text-sm !px-[15px] !py-[8px] text-white border-1 border-transparant rounded-3xl`}
+                                  >
+                                      {subMenu}
+                                  </li>
+                              ))
+                            : null
                     )}
                 </ul>
             </div>
-            
+
             <div className="!m-[70px] flex flex-col gap-[50px]">
                 {/* Afternoon tea */}
                 <section className="flex flex-col gap-[10px]">
